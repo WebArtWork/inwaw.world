@@ -9,15 +9,16 @@ export const environment = {
 		password: ''
 	},
 	image: {
-		default: 'https://ngx.webart.work/assets/logo.png',
-		logo: 'https://ngx.webart.work/assets/logo.png'
+		default: 'https://inwaw.world/assets/logo.png',
+		logo: 'https://inwaw.world/assets/logo.png'
 	},
 	meta: {
-		title: 'Web Art Work',
+		title: 'Легенди та Сутності',
+		suffix: 'Temnorid',
 		description:
-			'An amazing solution to build web or mobile app for your business',
-		favicon: 'https://ngx.webart.work/assets/favicon.ico',
-		image: 'https://ngx.webart.work/assets/logo.png'
+			'Занурся у світ Temnorid — фентезійного всесвіту, де оживають герої, боси, заклинання, навички та артефакти. Вивчай повну бібліотеку персонажів, досліджуй їхні історії та здібності. Випробуй себе у мінігрі "Вгадай персонажа" та перевір, наскільки добре ти знаєш цей світ. Для шанувальників RPG та епічних пригод.',
+		favicon: 'https://inwaw.world/assets/favicon.ico',
+		image: 'https://inwaw.world/assets/logo.png'
 	},
 	defaultLanguageCode: 'uk',
 	languages: [

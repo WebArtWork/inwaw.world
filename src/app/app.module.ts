@@ -37,8 +37,11 @@ const routes: Routes = [
 						title: 'Artifact'
 					}
 				},
-				loadChildren: () => import('./pages/guest/artifact/artifact.module').then(m => m.ArtifactModule)
-			}, 
+				loadChildren: () =>
+					import('./pages/guest/artifact/artifact.module').then(
+						(m) => m.ArtifactModule
+					)
+			},
 			{
 				path: 'sign',
 				canActivate: [MetaGuard],
@@ -224,7 +227,7 @@ const routes: Routes = [
 					title: environment.meta.title,
 					favicon: environment.meta.favicon,
 					description: environment.meta.description,
-					titleSuffix: ' | ' + environment.meta.title,
+					titleSuffix: ' | ' + environment.meta.suffix,
 					'og:image': environment.meta.image
 				}
 			},
