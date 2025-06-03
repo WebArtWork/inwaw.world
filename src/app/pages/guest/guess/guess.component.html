@@ -1,0 +1,38 @@
+<div class="documents-wrapper">
+	<div class="documents-container">
+		<div class="documents-list">
+			<div class="documents-header">
+				<div class="documents-header__title" translate>
+					Brawl.Gameplay
+				</div>
+			</div>
+			<div class="documents-main">
+				<div class="documents-main-content">
+					<div class="documents-main-row">
+						<wform
+							[submition]="submition"
+							(wChange)="addCharacter()"
+							[config]="formDoc"
+						></wform>
+					</div>
+					<div class="documents-main-row">
+						<div class="documents__title" translate>
+							Brawl.Selected brawlers
+						</div>
+						<div class="documents-triggers">
+							<div
+								*ngFor="let character of selectedCharacters; index as i"
+								class="documents-triggers__wrap"
+							>
+								<!-- <core-brawl
+									[compareToBrawler]="selectedCharacter"
+									[brawler]="brawler"
+								></core-brawl> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

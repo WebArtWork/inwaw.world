@@ -1,0 +1,11 @@
+<wtable
+	[columns]="columns"
+	title="Characters"
+	[config]="config"
+	*ngIf="showTable"
+	[rows]="rows"
+>
+	<ng-template cell="birth" let-element>
+		{{element.birth|date:'dd/MM/YYY'}}
+	</ng-template>
+</wtable>

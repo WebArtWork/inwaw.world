@@ -1,0 +1,39 @@
+<div class="wrapper" id="wrapper">
+	<nav class="nav">
+		<ul class="nav__ul container">
+			<li class="nav__li">
+				<a
+					(click)="userService.setMode(userService.mode === 'dark' ? 'white' : 'dark')"
+					class="nav__a"
+				>
+					<span class="material-icons"
+						>{{userService.mode === 'dark' ? 'dark_mode' :
+						'light_mode'}}</span
+					>
+				</a>
+			</li>
+			<li class="nav__li">
+				<a
+					routerLinkActive="_activeLink"
+					routerLink="/library"
+					class="nav__a"
+				>
+					<span class="material-icons">menu_book</span>
+				</a>
+			</li>
+			<li class="nav__li">
+				<a
+					routerLinkActive="_activeLink"
+					routerLink="/guess"
+					class="nav__a"
+				>
+					<span class="material-icons">quiz</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="main">
+		<router-outlet></router-outlet>
+	</div>
+</div>
