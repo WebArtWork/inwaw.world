@@ -12,17 +12,19 @@ import { FormcomponentsModule } from './formcomponents/formcomponents.module';
 import { SelectModule } from './modules/select/select.module';
 import { FormModule } from './modules/form/form.module';
 /* imports */
-import { ArtifactComponent } from './components/artifact.component';
-import { BossComponent } from './components/boss.component';
-import { SpellComponent } from './components/spell.component';
-import { CharacterComponent } from './components/character.component';
+import { SkillComponent } from './components/skill.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ArtifactComponent } from './components/artifact/artifact.component';
+import { BossComponent } from './components/boss/boss.component';
+import { CharacterComponent } from './components/character/character.component';
 
 const components: Type<any>[] = [
 	/* components */
+	SkillComponent,
+	ProfileComponent,
 	ArtifactComponent,
 	BossComponent,
-	SpellComponent,
-	CharacterComponent,
+	CharacterComponent
 ];
 
 const selectors: Type<any>[] = [
@@ -52,6 +54,7 @@ const pipes: Type<any>[] = [
 		.concat(selectors)
 		.concat(pipes),
 	imports: [
+		TranslateModule,
 		FormcomponentsModule,
 		SelectModule,
 		CommonModule,

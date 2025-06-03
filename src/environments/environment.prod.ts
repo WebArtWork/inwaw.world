@@ -1,7 +1,7 @@
 export const environment = {
 	roles: [],
 	production: true,
-	appId: 'test',
+	appId: 'inwaw.world',
 	url: 'https://webart.work',
 	sign: {
 		logo: '',
@@ -19,5 +19,18 @@ export const environment = {
 		favicon: 'https://ngx.webart.work/assets/favicon.ico',
 		image: 'https://ngx.webart.work/assets/logo.png'
 	},
-	defaultLanguageCode: 'en'
+	defaultLanguageCode: 'uk',
+	languages: [
+		{
+			code: 'en',
+			name: 'English',
+			origin: 'English'
+		},
+		{
+			code: 'uk',
+			name: 'Українська',
+			origin: 'Українська'
+		}
+	],
+	story: '67e6d6c097e5d1d9fb3c57b8'
 };

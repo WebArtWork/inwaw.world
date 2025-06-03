@@ -1,0 +1,57 @@
+<div class="documents-triggers__item">
+	<div class="documents-triggers__img">
+		<img
+			[src]="character.thumb ? url + character.thumb : '/assets/default.png'"
+			alt=""
+		/>
+	</div>
+	<div class="documents-triggers__title">
+		{{'Inwawworld.'+character.name|translate}}
+	</div>
+	<div class="documents-tags">
+		<div
+			*ngFor="let type of iww.characterTypes"
+			class="documents-tags__wrap"
+		>
+			@if (type.field === 'Select') {
+			<div
+				[class.green]="compareToCharacter && character.data[type.name] === compareToCharacter.data[type.name]"
+				[class.red]="compareToCharacter && character.data[type.name] !== compareToCharacter.data[type.name]"
+				class="documents-tags__item"
+			>
+				<span>{{'Character.' + type.name | translate}}</span>:
+				{{'Common.'+character.data[type.name]|translate}}
+			</div>
+			} @else if (type.field === 'Multiple') {
+			<div
+				[class.green]="compareToCharacter && character.data[type.name] === compareToCharacter.data[type.name]"
+				[class.red]="compareToCharacter && character.data[type.name] !== compareToCharacter.data[type.name]"
+				class="documents-tags__item"
+			>
+				<span>{{'Character.' + type.name | translate}}</span>:
+				{{'Common.'+character.data[type.name]|translate}}
+			</div>
+			} @else if (type.field === 'Number') {
+			<div
+				[class.green]="compareToCharacter && character.data[type.name] === compareToCharacter.data[type.name]"
+				[class.orange]="compareToCharacter && Math.abs(number(character.data[type.name]) - number(compareToCharacter.data[type.name])) < 3000 && character.data[type.name] !== compareToCharacter.data[type.name]"
+				[class.red]="compareToCharacter && Math.abs(number(character.data[type.name]) - number(compareToCharacter.data[type.name])) >= 3000"
+				class="documents-tags__item"
+			>
+				<span>{{'Character.' + type.name | translate}}</span>:
+				{{character.data[type.name]}}
+				<i
+					*ngIf="compareToCharacter && number(character.data[type.name]) > number(compareToCharacter.data[type.name])"
+					class="material-icons"
+					>arrow_upward</i
+				>
+				<i
+					*ngIf="compareToCharacter && number(character.data[type.name]) < number(compareToCharacter.data[type.name])"
+					class="material-icons"
+					>arrow_downward</i
+				>
+			</div>
+			}
+		</div>
+	</div>
+</div>

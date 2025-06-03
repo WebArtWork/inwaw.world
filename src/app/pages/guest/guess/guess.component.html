@@ -2,32 +2,37 @@
 	<div class="documents-container">
 		<div class="documents-list">
 			<div class="documents-header">
+				<core-profile />
+
 				<div class="documents-header__title" translate>
-					Brawl.Gameplay
+					Character.Guess the character
 				</div>
 			</div>
 			<div class="documents-main">
 				<div class="documents-main-content">
 					<div class="documents-main-row">
 						<wform
-							[submition]="submition"
 							(wChange)="addCharacter()"
+							[submition]="submition"
 							[config]="formDoc"
 						></wform>
 					</div>
-					<div class="documents-main-row">
+					<div
+						*ngIf="selectedCharacters.length"
+						class="documents-main-row"
+					>
 						<div class="documents__title" translate>
-							Brawl.Selected brawlers
+							Character.Selected characters
 						</div>
 						<div class="documents-triggers">
 							<div
 								*ngFor="let character of selectedCharacters; index as i"
 								class="documents-triggers__wrap"
 							>
-								<!-- <core-brawl
-									[compareToBrawler]="selectedCharacter"
-									[brawler]="brawler"
-								></core-brawl> -->
+								<core-character
+									[compareToCharacter]="selectedCharacter"
+									[character]="character"
+								/>
 							</div>
 						</div>
 					</div>

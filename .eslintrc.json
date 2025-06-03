@@ -21,6 +21,9 @@
 				"plugin:prettier/recommended"
 			],
 			"rules": {
+				"@angular-eslint/prefer-standalone": "off",
+				"@angular-eslint/no-standalone-components": "off",
+				"@angular-eslint/prefer-standalone-component": "off",
 				"no-console": "warn",
 				"@typescript-eslint/explicit-function-return-type": "error",
 				"@typescript-eslint/no-unsafe-call": "off",

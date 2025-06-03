@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { FormService } from 'src/app/core/modules/form/form.service';
-import { AlertService } from 'wacom';
+import { AlertService, CoreService } from 'wacom';
 import { Storycharacter } from 'src/app/modules/story/interfaces/storycharacter.interface';
+import { InwawworldService } from 'src/app/core/services/inwawworld.service';
+import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 
 @Component({
 	templateUrl: './guess.component.html',
@@ -12,9 +14,7 @@ import { Storycharacter } from 'src/app/modules/story/interfaces/storycharacter.
 export class GuessComponent {
 	characters: Storycharacter[] = [];
 
-	selectedCharacter: Storycharacter = [][
-		Math.floor(Math.random() * [].length)
-	];
+	selectedCharacter: Storycharacter;
 
 	selectedCharacters: Storycharacter[] = [];
 
@@ -32,11 +32,15 @@ export class GuessComponent {
 					},
 					{
 						name: 'Placeholder',
-						value: 'Select brawler you believe is correct'
+						value: this._translateService.translate(
+							'Character.Select character you believe is correct'
+						)
 					},
 					{
 						name: 'Label',
-						value: 'Brawler'
+						value: this._translateService.translate(
+							'Character.Character'
+						)
 					},
 					{
 						name: 'Items',
@@ -45,12 +49,12 @@ export class GuessComponent {
 					{
 						name: 'Name',
 						skipTranslation: true,
-						value: 'Name'
+						value: 'name'
 					},
 					{
 						name: 'Value',
 						skipTranslation: true,
-						value: 'Name'
+						value: 'name'
 					}
 				]
 			}
@@ -61,29 +65,43 @@ export class GuessComponent {
 
 	constructor(
 		private _form: FormService,
-		private _alert: AlertService
-	) {}
+		private _alert: AlertService,
+		private _core: CoreService,
+		private _iww: InwawworldService,
+		private _translateService: TranslateService
+	) {
+		this._core.onComplete('storycharacter_loaded').then(() => {
+			this.characters.push(...this._iww.characters);
+
+			this.selectedCharacter =
+				this.characters[
+					Math.floor(Math.random() * this.characters.length)
+				];
+
+			console.log(this._iww.characters.length);
+		});
+	}
 
 	addCharacter() {
-		if (this.selectedCharacter.name === this.submition['brawler']) {
+		if (this.selectedCharacter.name === this.submition['character']) {
 			this._alert.success({
-				text: `Well done, you found the Brawler, good job, used ${this.selectedCharacters.length + 1} tries`
+				text: `Well done, you found the character, good job, used ${this.selectedCharacters.length + 1} tries`
 			});
 		}
 
 		this.selectedCharacters.push(
 			this.characters.find(
-				(b) => b.name === this.submition['brawler']
+				(b) => b.name === this.submition['character']
 			) as Storycharacter
 		);
 
 		this.characters.splice(
 			this.characters.findIndex(
-				(b) => b.name === this.submition['brawler']
+				(b) => b.name === this.submition['character']
 			),
 			1
 		);
 
-		this.submition['brawler'] = '';
+		this.submition['character'] = '';
 	}
 }

@@ -2,23 +2,47 @@
 	<div class="documents-container">
 		<div class="documents-list">
 			<div class="documents-header">
+				<core-profile />
+
 				<div class="documents-header__title" translate>
-					Character.Gameplay
+					Character.Library
 				</div>
 			</div>
 			<div class="documents-main">
 				<div class="documents-main-content">
+					<wtab [tabs]="tabs" class="tabs" />
+
 					<div class="documents-main-row">
-						<div class="documents__title" translate>
-							Character.Selected brawlers
-						</div>
 						<div class="documents-triggers">
+							@if (tab === 'Characters') {
 							<div
-								*ngFor="let brawler of []; index as i"
+								*ngFor="let character of iww.characters; index as i"
 								class="documents-triggers__wrap"
 							>
-								<!-- <core-brawl [brawler]="brawler"></core-brawl> -->
+								<core-character [character]="character" />
 							</div>
+							} @else if (tab === 'Bosses') {
+							<div
+								*ngFor="let boss of iww.bosses; index as i"
+								class="documents-triggers__wrap"
+							>
+								<core-boss [boss]="boss" />
+							</div>
+							} @else if (tab === 'Skills') {
+							<div
+								*ngFor="let skill of iww.skills; index as i"
+								class="documents-triggers__wrap"
+							>
+								<core-skill [skill]="skill" />
+							</div>
+							} @else if (tab === 'Artifacts') {
+							<div
+								*ngFor="let artifact of iww.artifacts; index as i"
+								class="documents-triggers__wrap"
+							>
+								<core-artifact [artifact]="artifact" />
+							</div>
+							}
 						</div>
 					</div>
 				</div>
