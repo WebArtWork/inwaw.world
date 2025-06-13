@@ -1,1 +1,11 @@
-<p>Component Boss is connected</p>
+<div class="documents-triggers__item">
+	<div class="documents-triggers__img">
+		<img
+			[src]="boss.thumb ? url + boss.thumb : '/assets/default.png'"
+			alt=""
+		/>
+	</div>
+	<div class="documents-triggers__title">
+		{{'Inwawworld.'+boss.name|translate}}
+	</div>
+</div>

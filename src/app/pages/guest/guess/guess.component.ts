@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { FormService } from 'src/app/core/modules/form/form.service';
-import { AlertService, CoreService } from 'wacom';
-import { Storycharacter } from 'src/app/modules/story/interfaces/storycharacter.interface';
-import { InwawworldService } from 'src/app/core/services/inwawworld.service';
+import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
+import { InwawworldService } from 'src/app/core/services/inwawworld.service';
+import { Storycharacter } from 'src/app/modules/story/interfaces/storycharacter.interface';
+import { AlertService, CoreService } from 'wacom';
 
 @Component({
 	templateUrl: './guess.component.html',
@@ -71,14 +71,13 @@ export class GuessComponent {
 		private _translateService: TranslateService
 	) {
 		this._core.onComplete('storycharacter_loaded').then(() => {
-			this.characters.push(...this._iww.characters);
-
-			this.selectedCharacter =
-				this.characters[
-					Math.floor(Math.random() * this.characters.length)
-				];
-
-			console.log(this._iww.characters.length);
+			setTimeout(() => {
+				this.characters.push(...this._iww.characters);
+				this.selectedCharacter =
+					this.characters[
+						Math.floor(Math.random() * this.characters.length)
+					];
+			}, 500);
 		});
 	}
 

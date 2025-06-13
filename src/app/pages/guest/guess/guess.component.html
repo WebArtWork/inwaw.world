@@ -13,6 +13,7 @@
 					<div class="documents-main-row">
 						<wform
 							(wChange)="addCharacter()"
+							*ngIf="characters.length"
 							[submition]="submition"
 							[config]="formDoc"
 						></wform>

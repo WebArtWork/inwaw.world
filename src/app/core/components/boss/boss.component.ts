@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Storyboss } from 'src/app/modules/story/interfaces/storyboss.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
 	selector: 'core-boss',
@@ -8,5 +9,7 @@ import { Storyboss } from 'src/app/modules/story/interfaces/storyboss.interface'
 	standalone: false
 })
 export class BossComponent {
+	readonly url = environment.url;
+
 	@Input() boss: Storyboss;
 }

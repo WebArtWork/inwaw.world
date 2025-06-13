@@ -5,6 +5,6 @@
 		(click)="tab.click(tab.name, i); clear(); tab.active = true"
 	>
 		<i class="material-icons" *ngIf="tab.icon">{{tab.icon}}</i>
-		<span>{{tab.name}}</span>
+		<span>{{'Tab.' + tab.name|translate}}</span>
 	</wbutton>
 </div>

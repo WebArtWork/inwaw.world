@@ -1,1 +1,11 @@
-<p>Component Skill is connected</p>
+<div class="documents-triggers__item">
+	<div class="documents-triggers__img">
+		<img
+			[src]="skill.thumb ? url + skill.thumb : '/assets/default.png'"
+			alt=""
+		/>
+	</div>
+	<div class="documents-triggers__title">
+		{{'Inwawworld.'+skill.name|translate}}
+	</div>
+</div>

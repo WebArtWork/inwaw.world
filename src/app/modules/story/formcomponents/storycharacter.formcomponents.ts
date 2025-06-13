@@ -1,4 +1,6 @@
-export const storycharacterFormComponents = {
+import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+
+export const storycharacterFormComponents: FormInterface = {
 	formId: 'storycharacter',
 	title: 'Storycharacter',
 	components: [
@@ -9,11 +11,21 @@ export const storycharacterFormComponents = {
 			fields: [
 				{
 					name: 'Placeholder',
-					value: 'fill storycharacter title',
+					value: 'fill storycharacter title'
 				},
 				{
 					name: 'Label',
-					value: 'Title',
+					value: 'Title'
+				}
+			]
+		},
+		{
+			name: 'Photo',
+			key: 'thumb',
+			fields: [
+				{
+					name: 'Label',
+					value: 'Image'
 				}
 			]
 		},
@@ -23,13 +35,13 @@ export const storycharacterFormComponents = {
 			fields: [
 				{
 					name: 'Placeholder',
-					value: 'fill storycharacter description',
+					value: 'fill storycharacter description'
 				},
 				{
 					name: 'Label',
-					value: 'Description',
+					value: 'Description'
 				}
 			]
 		}
 	]
-}
+};

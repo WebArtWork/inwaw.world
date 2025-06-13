@@ -44,6 +44,7 @@
 
 @media (max-width: 45em) {
 	.tabs {
+		margin: 0 -8px 0 0px;
 		&__content {
 			order: initial;
 		}
@@ -57,25 +58,33 @@
 	}
 }
 @media screen and (max-width: 767px) {
-.tabs {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch; /* для плавного скролу на iOS */
-  scrollbar-width: none; /* Firefox */
-      flex-wrap: unset;
-	    overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-      justify-content: unset;
-}
+	.tabs {
+		display: flex;
+		overflow-x: auto;
+		white-space: nowrap;
+		-webkit-overflow-scrolling: touch; /* для плавного скролу на iOS */
+		scrollbar-width: none; /* Firefox */
+		flex-wrap: unset;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		justify-content: unset;
+	}
 
-.tabs::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
+	.tabs::-webkit-scrollbar {
+		display: none; /* Chrome, Safari */
+	}
 
-.tabs wbutton {
-  flex: 0 0 auto; /* щоб кнопки не стискалися і йшли в ряд */
-}
+	.tabs wbutton {
+		flex: 0 0 auto; /* щоб кнопки не стискалися і йшли в ряд */
+	}
 
+	.tabs button {
+		font-size: 16px;
+		height: 50px;
+	}
+
+	.tabs button i {
+		font-size: 22px;
+	}
 }

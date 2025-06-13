@@ -36,16 +36,12 @@ export class InwawworldService {
 			.get({ query: 'story=' + environment.story }, { name: 'public' })
 			.subscribe((characters) => {
 				this.characters = characters;
-
-				console.log(characters);
 			});
 
 		this._charaterTypeService
 			.get({ query: 'story=' + environment.story }, { name: 'public' })
 			.subscribe((characterTypes) => {
 				this.characterTypes = characterTypes;
-
-				console.log(characterTypes);
 			});
 
 		this._bossService

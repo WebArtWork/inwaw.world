@@ -1,21 +1,21 @@
-import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 // Core
-import { GuestComponent } from './core/theme/guest/guest.component';
-import { UserComponent } from './core/theme/user/user.component';
-import { PublicComponent } from './core/theme/public/public.component';
-import { AppComponent } from './app.component';
-import { CoreModule } from 'src/app/core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from 'src/app/core/core.module';
+import { AppComponent } from './app.component';
+import { GuestComponent } from './core/theme/guest/guest.component';
+import { PublicComponent } from './core/theme/public/public.component';
+import { UserComponent } from './core/theme/user/user.component';
 // config
-import { WacomModule, MetaGuard } from 'wacom';
 import { environment } from 'src/environments/environment';
+import { MetaGuard, WacomModule } from 'wacom';
 // guards
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AdminsGuard } from './core/guards/admins.guard';
 import { AuthenticatedGuard } from './core/guards/authenticated.guard';
 import { GuestGuard } from './core/guards/guest.guard';
-import { AdminsGuard } from './core/guards/admins.guard';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
 	{
@@ -29,19 +29,6 @@ const routes: Routes = [
 		component: GuestComponent,
 		children: [
 			/* guest */
-			{
-				path: 'artifact',
-				canActivate: [MetaGuard],
-				data: {
-					meta: {
-						title: 'Artifact'
-					}
-				},
-				loadChildren: () =>
-					import('./pages/guest/artifact/artifact.module').then(
-						(m) => m.ArtifactModule
-					)
-			},
 			{
 				path: 'sign',
 				canActivate: [MetaGuard],
@@ -60,7 +47,7 @@ const routes: Routes = [
 	{
 		path: '',
 		canActivate: [AuthenticatedGuard],
-		component: UserComponent,
+		component: PublicComponent,
 		children: [
 			/* user */
 			{
@@ -82,7 +69,19 @@ const routes: Routes = [
 		path: '',
 		component: PublicComponent,
 		children: [
-			/* user */
+			{
+				path: 'artifact',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Artifact'
+					}
+				},
+				loadChildren: () =>
+					import('./pages/guest/artifact/artifact.module').then(
+						(m) => m.ArtifactModule
+					)
+			},
 			{
 				path: 'library',
 				canActivate: [MetaGuard],

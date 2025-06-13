@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ButtonModule } from 'src/app/core/modules/button/button.module';
+import { TranslateModule } from '../translate/translate.module';
 import { Tab } from './tab.interface';
 
 @Component({
-	imports: [CommonModule, ButtonModule],
+	imports: [CommonModule, ButtonModule, TranslateModule],
 	selector: 'wtab',
 	templateUrl: './tab.component.html',
 	styleUrls: ['./tab.component.scss']
