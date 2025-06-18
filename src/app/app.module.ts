@@ -30,6 +30,19 @@ const routes: Routes = [
 		children: [
 			/* guest */
 			{
+				path: 'license',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'License'
+					}
+				},
+				loadChildren: () =>
+					import('./pages/guest/license/license.module').then(
+						(m) => m.LicenseModule
+					)
+			},
+			{
 				path: 'sign',
 				canActivate: [MetaGuard],
 				data: {
@@ -69,6 +82,19 @@ const routes: Routes = [
 		path: '',
 		component: PublicComponent,
 		children: [
+			{
+				path: 'privacy',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Privacy'
+					}
+				},
+				loadChildren: () =>
+					import('./pages/guest/privacy/privacy.module').then(
+						(m) => m.PrivacyModule
+					)
+			},
 			{
 				path: 'artifact',
 				canActivate: [MetaGuard],
