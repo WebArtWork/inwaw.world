@@ -20,7 +20,6 @@ export class GuessComponent {
 
 	formDoc: FormInterface = this._form.getForm('docForm', {
 		formId: 'docForm',
-		title: 'Select character',
 		components: [
 			{
 				name: 'Select',
