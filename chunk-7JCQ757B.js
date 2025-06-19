@@ -1,0 +1,1 @@
+import{c as s}from"./chunk-M2RWLSWZ.js";import{f as n}from"./chunk-EQDQRRRY.js";var o=class extends s{enable(t){return n(this,null,function*(){})}disable(t){return n(this,null,function*(){})}};export{o as SafeAreaWeb};
