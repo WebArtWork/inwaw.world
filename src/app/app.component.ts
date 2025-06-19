@@ -1,15 +1,6 @@
 import { Component } from '@angular/core';
 import { SafeArea } from '@capacitor-community/safe-area';
-
-SafeArea.enable({
-	config: {
-		customColorsForSystemBars: true,
-		statusBarColor: '#00000000', // transparent
-		statusBarContent: 'light',
-		navigationBarColor: '#00000000', // transparent
-		navigationBarContent: 'light'
-	}
-});
+import { Capacitor } from '@capacitor/core';
 
 @Component({
 	selector: 'app-root',
@@ -17,4 +8,20 @@ SafeArea.enable({
 	styleUrls: ['./app.component.scss'],
 	standalone: false
 })
-export class AppComponent {}
+export class AppComponent {
+	constructor() {
+		window.addEventListener('DOMContentLoaded', async () => {
+			if (Capacitor.isNativePlatform()) {
+				await SafeArea.enable({
+					config: {
+						customColorsForSystemBars: true,
+						statusBarColor: '#00000000', // transparent
+						statusBarContent: 'light',
+						navigationBarColor: '#00000000', // transparent
+						navigationBarContent: 'light'
+					}
+				});
+			}
+		});
+	}
+}
