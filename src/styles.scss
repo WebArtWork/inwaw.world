@@ -1,9 +1,17 @@
 @use 'scss';
 
-body {
-	margin-top: var(--safe-area-inset-top, 0px);
-	margin-bottom: var(--safe-area-inset-bottom, 0px);
-}
+// .nav {
+// 	margin-bottom: 100px;
+// }
+
+// .documents-header {
+// 	margin-top: 50px;
+// }
+
+// body {
+// 	margin-top: var(--safe-area-inset-top, 0px);
+// 	margin-bottom: var(--safe-area-inset-bottom, 0px);
+// }
 
 .nav {
 	margin-bottom: var(--safe-area-inset-bottom, 0px);

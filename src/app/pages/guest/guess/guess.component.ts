@@ -33,7 +33,7 @@ export class GuessComponent {
 					{
 						name: 'Placeholder',
 						value: this._translateService.translate(
-							'Character.Select character you believe is correct'
+							'Character.Select character'
 						)
 					},
 					{
