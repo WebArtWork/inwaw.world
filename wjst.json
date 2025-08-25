@@ -2,7 +2,7 @@
 	"layout": "/layouts/full.html",
 	"layouts": ["default", "full", "navigation"],
 	"sections": ["home-one"],
-	"title": "Title which will fit on all pages",
+	"title": "in WAW World",
 	"description": "Description which will fit on all pages",
 	"keywords": "waw, web art work, server render, template",
 	"prefix": "/wjst-default",
